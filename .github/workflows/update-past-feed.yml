@@ -28,4 +28,5 @@ jobs:
           git add "Feeds/Past Feed/Past Feed.ics"
           git diff --cached --quiet && echo "No changes, skipping." && exit 0
           git commit -m "Update Past Feed $(date -u +"%Y%m%dT%H%M%SZ")"
+          git pull --rebase
           git push
