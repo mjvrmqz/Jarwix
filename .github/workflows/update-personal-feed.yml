@@ -28,4 +28,5 @@ jobs:
           git add "Feeds/Personal Feed/Personal Feed.ics"
           git diff --cached --quiet && echo "No changes, skipping." && exit 0
           git commit -m "Update Personal Feed $(date -u +"%Y%m%dT%H%M%SZ")"
+          git pull --rebase
           git push
