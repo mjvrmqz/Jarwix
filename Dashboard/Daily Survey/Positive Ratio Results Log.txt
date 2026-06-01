@@ -1,0 +1,113 @@
+1/1/26
+Positive Results: 6
+Negative Results: 6
+
+Positive Ratio: 1
+
+1/2/26
+Positive Results: 6
+Negative Results: 5
+
+Positive Ratio: 1.2
+
+1/3/26
+Positive Results: 7
+Negative Results: 5
+
+Positive Ratio: 1.4
+
+1/4/26
+Positive Results: 8
+Negative Results: 5
+
+Positive Ratio: 1.6
+
+1/5/26
+Positive Results: 6
+Negative Results: 4
+
+Positive Ratio: 1.5
+
+1/9/26
+Positive Results: 4
+Negative Results: 5
+
+Positive Ratio: 0.8
+
+1/16/26
+Positive Results: 7
+Negative Results: 7
+
+Positive Ratio: 1
+
+1/19/26
+Positive Results: 6
+Negative Results: 2
+
+Positive Ratio: 3
+
+1/21/26
+Positive Results: 4
+Negative Results: 2
+
+Positive Ratio: 2
+
+1/24/26
+Positive Results: 7
+Negative Results: 2
+
+Positive Ratio: 3.5
+
+1/25/26
+Positive Results: 6
+Negative Results: 3
+
+Positive Ratio: 2
+
+1/26/26
+Positive Results: 9
+Negative Results: 1
+
+Positive Ratio: 9
+
+1/28/26
+Positive Results: 7
+Negative Results: 4
+
+Positive Ratio: 1.75
+
+1/29/26
+Positive Results: 2
+Negative Results: 5
+
+Positive Ratio: 0.4
+
+1/31/26
+Positive Results: 8
+Negative Results: 2
+
+Positive Ratio: 4
+
+2/2/26
+Positive Results: 4
+Negative Results: 3
+
+Positive Ratio: 1.33
+
+2/5/26
+Positive Results: 7
+Negative Results: 3
+
+Positive Ratio: 2.33
+
+2/6/26
+Positive Results: 1
+Negative Results: 6
+
+Positive Ratio: 0.17
+
+2/7/26
+Positive Results: 9
+Negative Results: 2
+
+Positive Ratio: 4.5
