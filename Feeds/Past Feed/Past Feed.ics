@@ -2,185 +2,185 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:ics.py - http://git.io/lLljaA
 BEGIN:VEVENT
-DESCRIPTION:1. Open The Psychology of Persuasion PDF in Adobe Acrobat\n2. Read Pages 11–23 (Chapter One) without rushing\n3. Highlight any words\, quotes\, or concepts you want to remember\n4. Add images or annotations to key words in Acrobat\n5. When done\, write a summary in your Notes: what did you read\, and what can you do with this information?\n6. Attach the notes to the book’s page in Notion
-DTEND:20260523T120000Z
-DTSTART:20260523T110000Z
-SUMMARY:Finish Reading 3 Books — Ch. 1 Psychology of Persuasion (Pages 11–23)
-UID:b19c11d5-1c10-4dff-a931-f43c06a1665a@b19c.org
-END:VEVENT
-BEGIN:VEVENT
 DESCRIPTION:Set aside time purely for music discovery. Dig into new artists\, genres\, or rabbit holes you haven't explored yet. No agenda — just follow what sounds interesting and let it take you somewhere new.
 DTEND:20260519T001000Z
 DTSTART:20260518T231000Z
 SUMMARY:Explore New Music
-UID:301e2ac8-3f09-49c5-89e0-8d85796f6d2a@301e.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Open YouTube\, X (Twitter)\, and Skool\n2. Search for content creators/educators in your target niche\n3. Evaluate each against your HVR screening criteria\n4. Log leads 14–24 into the Screening database in Notion (name\, platform\, follower count\, content style\, engagement rate)\n5. Aim for 11 qualified leads total this session\n6. Note any standout prospects for outreach priority
-DTEND:20260523T065000Z
-DTSTART:20260523T045000Z
-SUMMARY:HVR Outreaching — Find Leads 14–24
-UID:ac9f61c6-6452-420b-9cf1-deeb6a4a51a7@ac9f.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Research your first screened lead's content library. Identify gaps\, high-performing formats\, and angles that would make a strong High Value Re-Edit. Map out the concept and approach.
-DTEND:20260519T040000Z
-DTSTART:20260519T024000Z
-SUMMARY:Draft HVR Concept for Lead #1
-UID:6bf11d93-3b6d-413e-8fa7-4481733f97ba@6bf1.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Pick up where you left off in YouTube\, X\, Skool\n2. Search for 8 more qualified leads (32–40)\n3. Evaluate each against the criteria doc you built earlier today\n4. Log each into the Screening database in Notion\n5. Update the Outreach Criteria doc with any new patterns or signals you notice\n6. Note any standout prospects for outreach priority
-DTEND:20260524T082000Z
-DTSTART:20260524T062000Z
-SUMMARY:HVR Outreaching — Find Leads 32–40 + Refine Criteria Doc
-UID:818ffdd6-f611-4e69-b873-8658d2aa98cd@818f.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Grab your book and find a comfortable spot away from screens\n2. Read pages 34-43 (Chapter 2) at your own pace\n3. Jot down any standout ideas or passages as you go\n4. When done\, spend 5 minutes summarizing the key takeaway from the chapter in your own words
-DTEND:20260528T134500Z
-DTSTART:20260528T124000Z
-SUMMARY:Read Pages 34–43 — Chapter 2
-UID:eebe61bf-eb1a-49dd-9bc8-f77cb7a04557@eebe.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Open YouTube\, X\, and Skool\n2. Search for content creators/educators in your niche\n3. Evaluate each against your existing screening criteria\n4. Log leads 24–31 into the Screening database in Notion (name\, platform\, follower count\, content style\, engagement)\n5. Simultaneously build a Google Doc or Notion page titled "HVR Outreach Criteria" — write down what made each lead qualify or not qualify as you go\n6. Include patterns: niche signals\, engagement benchmarks\, content style tells\, red flags\n7. Aim for 8 qualified leads + a usable criteria doc by end of session
-DTEND:20260524T013000Z
-DTSTART:20260523T230000Z
-SUMMARY:HVR Outreaching — Find Leads 24–31 + Build Outreach Criteria Doc
-UID:81d5e9f2-a9c9-4398-85d3-00a7221d1b18@81d5.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Open the AE Loader extension project\n2. Create a new text file called AE_Loader_Bug_Log.txt\n3. Go through the extension thoroughly and document every bug you find\n4. In a separate section\, list every feature/change/implementation you still want to add\n5. Sort each list by priority (critical bugs first\, then nice-to-haves)\n6. Save the file and share it with Claude in the next session to start fixing
-DTEND:20260523T110000Z
-DTSTART:20260523T093000Z
-SUMMARY:AE Loader — Bug & Change Documentation
-UID:c07b85f8-243a-445e-ada4-ce4aa8f7cbbe@c07b.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Open the Graphics folder in Downloads and work through the AE Loader assets. Review\, organize\, or process whatever needs attention. Make meaningful forward progress on the folder.
-DTEND:20260519T014000Z
-DTSTART:20260519T001000Z
-SUMMARY:AE Loader — Graphics Folder Work
-UID:aff14623-116b-4f9d-bfea-ef1f0ef95c7c@aff1.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Start with the kitchen — wipe surfaces\, do any dishes\, take out trash if needed\n2. Move to the living area — tidy up\, vacuum or sweep\n3. Quick bathroom wipe-down\n4. Any other spots that need attention\n5. Do a final walkthrough to make sure everything looks good
-DTEND:20260529T153500Z
-DTSTART:20260529T143500Z
-SUMMARY:Clean the House
-UID:c0fcf819-cd92-4aac-95ad-87f173776097@c0fc.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Open the Outreach database in Notion\n2. Go through each prospect and watch or skim their content\n3. Identify 2-3 best video candidates per prospect\n4. Note specific timestamps of clips that would make strong edits\n5. Write everything into a reference doc or Notion page for use in the re-edit session
-DTEND:20260528T124000Z
-DTSTART:20260528T104000Z
-SUMMARY:HVR — Identify Videos & Timestamps for Prospects
-UID:23a7e12e-9c49-4475-99f6-b2221ed50e5a@23a7.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Explore 2-3 note-taking approaches for video editing content (Notion table\, timestamped docs\, sketchnotes)\n2. Pick the method that feels most sustainable for you and set it up\n3. Watch the first video and take notes using your new system\n4. Watch the second video and continue\n5. Review what you captured — tweak the system if needed
-DTEND:20260529T123500Z
-DTSTART:20260529T110500Z
-SUMMARY:Study 400 Editing Videos — Note-Taking Setup + Watch 2 Videos
-UID:364b2629-9d29-494f-91f9-5d2acc2ed8cd@364b.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Open Instagram\, TikTok\, YouTube\, and Twitter/X\n2. Search for content creators in your target niche\n3. Evaluate each prospect against your screening criteria\n4. Log each qualifying prospect into the Screening database in Notion\n5. Aim for 20 prospects total — track count as you go\n6. Note follower count\, content style\, and engagement rate for each
-DTEND:20260522T093000Z
-DTSTART:20260522T073000Z
-SUMMARY:HVR Outreaching — Social Media Prospect Scraping
-UID:f628d60b-cc5e-415e-8dce-27a55c546a68@f628.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Research how existing storyboarding tools and AE extensions are structured. Gather references\, take notes on UX patterns and technical architecture relevant to building Freebird's storyboard feature inside After Effects.
-DTEND:20260519T024000Z
-DTSTART:20260519T014000Z
-SUMMARY:Freebird — Storyboard Feature Research
-UID:89d80ad0-f5a6-49a8-80f7-f678500c3769@89d8.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Grab your book and find a comfortable spot away from screens\n2. Read pages 34-43 (Chapter 2) at your own pace\n3. Jot down any standout ideas or passages as you go\n4. Spend 5 minutes summarizing the key takeaway from the chapter in your own words
-DTEND:20260529T110500Z
-DTSTART:20260529T100000Z
-SUMMARY:Finish Reading Pages 34–43 — Chapter 2
-UID:bc62b1e8-afd9-42d5-9dc4-2f3f3f11af0f@bc62.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Get ready and head out (leave by 8:40 PM)\n2. Warm up for 5–10 minutes\n3. Work out — push whatever you’re feeling tonight\n4. Cool down and head home
-DTEND:20260524T050000Z
-DTSTART:20260524T040000Z
-SUMMARY:Gym with Brother
-UID:b35fc10c-403b-4127-999c-2b6b19acc0fd@b35f.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Open MVS Studios in Notion and go through every page\n2. Open a Google Doc and write down everything that is broken\, missing\, or needs improvement\n3. Prioritize the list by impact\n4. Start fixing the highest-priority items (Invoices DB math is first)\n5. Write a Python script to fix invoice totals and output relevant stats\n6. Test the script and note what’s left for next session
-DTEND:20260523T093000Z
-DTSTART:20260523T073000Z
-SUMMARY:MVS/Jarwix Notion Rework — Audit & Fix Pages
-UID:4b046308-af99-414e-a0e3-b7116e1af83e@4b04.org
+UID:2ea5091c-6623-4af8-a93c-1203507720a5@2ea5.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:1. Find your copy of The Psychology of Persuasion\n2. Review any notes or highlights from Chapter 1 to reorient yourself\n3. Read Chapter 2 fully — mark or note any key ideas as you go\n4. Take a 5-10 min break\n5. Read Chapter 3 fully — continue noting key ideas\n6. After finishing\, jot down 2-3 takeaways from both chapters
 DTEND:20260520T101000Z
 DTSTART:20260520T084000Z
 SUMMARY:Go Read Chapters 2-3 — The Psychology of Persuasion
-UID:6180b256-5a0b-4463-a729-e462649943e6@6180.org
+UID:38bf4340-8831-40d5-9c06-d6cd2426d377@38bf.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Gym session with brother Jairo — coordinate meet-up\, warm up\, complete workout\, and cool down together for an active and social personal wellness block.
 DTEND:20260517T052000Z
 DTSTART:20260517T032000Z
 SUMMARY:Gym Session with Jairo
-UID:eb1cd76d-5ecd-4c9d-bfd8-7863541c21e3@eb1c.org
+UID:04c04b89-cc69-4e6b-be6d-8c10a78d53fa@04c0.org
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:1. Open The Psychology of Persuasion in Adobe Acrobat\n2. Read pages 24–33 without rushing\n3. Highlight key words\, quotes\, and concepts as you go\n4. When done\, open a new doc (Google Docs or Notes)\n5. Write a Chapter One summary: what did you learn?\n6. Write the personal application section: what does this mean to you specifically\, and how can you use it in your life or work?\n7. Save and attach the doc to the book’s page in Notion
-DTEND:20260524T062000Z
-DTSTART:20260524T052000Z
-SUMMARY:Finish Reading 3 Books — Ch. 1 Pages 24–33 + Personal Application Doc
-UID:5929638c-5168-4549-a975-18541d18897f@5929.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Explore 2-3 note-taking approaches for video editing content (Notion table\, timestamped docs\, sketchnotes)\n2. Pick the method that feels most sustainable for you and set it up\n3. Watch the first video and take notes using your new system\n4. Watch the second video and continue\n5. Review what you captured — tweak the system if needed
-DTEND:20260529T123500Z
-DTSTART:20260529T110500Z
-SUMMARY:Study 400 Editing Videos — Note-Taking Setup + Watch 2 Videos
-UID:e64104bb-a72a-4c85-a59a-a3727681567b@e641.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Continue scraping YouTube\, X\, Skool for leads 41–50\n2. Log each qualifying prospect into the Screening database\n3. Evaluate against your now-refined criteria doc\n4. Polish the criteria doc — clean it up so it’s a usable reference going forward\n5. Note the top 5 prospects from tonight’s full session worth prioritizing for outreach
-DTEND:20260524T135000Z
-DTSTART:20260524T102000Z
-SUMMARY:HVR Outreaching — Find Leads 41–50 + Polish Criteria Doc
-UID:613ffd30-86c0-4310-b1f9-0f8bf24c31b6@613f.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Pull up your notes on Lead #1 from Monday's session\nReview their content library — identify 2-3 content gaps or underperforming formats\nDecide on the angle for the High Value Re-Edit (format\, hook style\, pacing)\nSketch the concept: what the re-edit would look like\, why it would perform better\nWrite a rough 1-paragraph concept summary you could reference when building the actual HVR
-DTEND:20260520T114000Z
-DTSTART:20260520T101000Z
-SUMMARY:Draft HVR Concept for Lead #1 — Continued
-UID:ba15f03c-667f-47df-bcb3-9f99d9a93e79@ba15.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:1. Open your MVS Studios workspace in Notion\n2. Go through each page one by one\n3. In a Google Doc\, write down everything that looks broken\, outdated\, or missing\n4. Prioritize the list — what can you fix right now vs what needs more time?\n5. Start working through the quick fixes\n6. Leave a note in the doc for anything deferred to a future session
-DTEND:20260529T143500Z
-DTSTART:20260529T123500Z
-SUMMARY:MVS Studios Page Audit & Fix
-UID:cc91283e-0fae-4d19-ab46-6db4138731e6@cc91.org
+DESCRIPTION:1. Pick up where you left off in YouTube\, X\, Skool\n2. Search for 8 more qualified leads (32–40)\n3. Evaluate each against the criteria doc you built earlier today\n4. Log each into the Screening database in Notion\n5. Update the Outreach Criteria doc with any new patterns or signals you notice\n6. Note any standout prospects for outreach priority
+DTEND:20260524T082000Z
+DTSTART:20260524T062000Z
+SUMMARY:HVR Outreaching — Find Leads 32–40 + Refine Criteria Doc
+UID:6e3bc119-c83c-4cd4-84c6-9610ab921852@6e3b.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:1. Open the MVS Studios Projects Resources page in Notion\n2. Review the current Invoices database structure and identify broken math\n3. Map out the correct formula logic on paper or in a doc\n4. Write a Python script to output corrected invoice totals and relevant stats\n5. Test the script against a few sample entries\n6. Note remaining work for next session
 DTEND:20260522T113000Z
 DTSTART:20260522T093000Z
 SUMMARY:MVS / Jarwix Notion Rework — Invoices DB Scripting (Light)
-UID:e88bfb41-6760-4c4f-928c-7658d9dc4a12@e88b.org
+UID:8f41721e-c1be-4739-ac85-9ab8ad82b334@8f41.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Open YouTube\, X (Twitter)\, and Skool\n2. Search for content creators/educators in your target niche\n3. Evaluate each against your HVR screening criteria\n4. Log leads 14–24 into the Screening database in Notion (name\, platform\, follower count\, content style\, engagement rate)\n5. Aim for 11 qualified leads total this session\n6. Note any standout prospects for outreach priority
+DTEND:20260523T065000Z
+DTSTART:20260523T045000Z
+SUMMARY:HVR Outreaching — Find Leads 14–24
+UID:64d08535-5f0d-47c5-a4f3-14bc93bc38e6@64d0.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Continue scraping YouTube\, X\, Skool for leads 41–50\n2. Log each qualifying prospect into the Screening database\n3. Evaluate against your now-refined criteria doc\n4. Polish the criteria doc — clean it up so it’s a usable reference going forward\n5. Note the top 5 prospects from tonight’s full session worth prioritizing for outreach
+DTEND:20260524T135000Z
+DTSTART:20260524T102000Z
+SUMMARY:HVR Outreaching — Find Leads 41–50 + Polish Criteria Doc
+UID:9a01d4b6-214b-45e2-b3be-dd2e1d4ada0b@9a01.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Open The Psychology of Persuasion in Adobe Acrobat\n2. Read pages 24–33 without rushing\n3. Highlight key words\, quotes\, and concepts as you go\n4. When done\, open a new doc (Google Docs or Notes)\n5. Write a Chapter One summary: what did you learn?\n6. Write the personal application section: what does this mean to you specifically\, and how can you use it in your life or work?\n7. Save and attach the doc to the book’s page in Notion
+DTEND:20260524T062000Z
+DTSTART:20260524T052000Z
+SUMMARY:Finish Reading 3 Books — Ch. 1 Pages 24–33 + Personal Application Doc
+UID:f61e47df-1931-4a0f-8a34-d2a7ae34e65a@f61e.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Research your first screened lead's content library. Identify gaps\, high-performing formats\, and angles that would make a strong High Value Re-Edit. Map out the concept and approach.
+DTEND:20260519T040000Z
+DTSTART:20260519T024000Z
+SUMMARY:Draft HVR Concept for Lead #1
+UID:9c74961a-0a58-481e-8aac-991f8d6989f8@9c74.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Grab your book and find a comfortable spot away from screens\n2. Read pages 34-43 (Chapter 2) at your own pace\n3. Jot down any standout ideas or passages as you go\n4. Spend 5 minutes summarizing the key takeaway from the chapter in your own words
+DTEND:20260529T110500Z
+DTSTART:20260529T100000Z
+SUMMARY:Finish Reading Pages 34–43 — Chapter 2
+UID:65909865-ac51-422d-a3a6-79a877eb31ba@6590.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Open your MVS Studios workspace in Notion\n2. Go through each page one by one\n3. In a Google Doc\, write down everything that looks broken\, outdated\, or missing\n4. Prioritize the list — what can you fix right now vs what needs more time?\n5. Start working through the quick fixes\n6. Leave a note in the doc for anything deferred to a future session
+DTEND:20260529T143500Z
+DTSTART:20260529T123500Z
+SUMMARY:MVS Studios Page Audit & Fix
+UID:12b916c3-10f5-417b-84fd-74c2bc8ef050@12b9.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Pull up your notes on Lead #1 from Monday's session\nReview their content library — identify 2-3 content gaps or underperforming formats\nDecide on the angle for the High Value Re-Edit (format\, hook style\, pacing)\nSketch the concept: what the re-edit would look like\, why it would perform better\nWrite a rough 1-paragraph concept summary you could reference when building the actual HVR
+DTEND:20260520T114000Z
+DTSTART:20260520T101000Z
+SUMMARY:Draft HVR Concept for Lead #1 — Continued
+UID:ed592aaa-cb50-49dd-9f69-ae6e5a450ad6@ed59.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Open the AE Loader extension project\n2. Create a new text file called AE_Loader_Bug_Log.txt\n3. Go through the extension thoroughly and document every bug you find\n4. In a separate section\, list every feature/change/implementation you still want to add\n5. Sort each list by priority (critical bugs first\, then nice-to-haves)\n6. Save the file and share it with Claude in the next session to start fixing
+DTEND:20260523T110000Z
+DTSTART:20260523T093000Z
+SUMMARY:AE Loader — Bug & Change Documentation
+UID:4361a2c7-2c37-4231-92d4-94ab1a674afe@4361.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Start with the kitchen — wipe surfaces\, do any dishes\, take out trash if needed\n2. Move to the living area — tidy up\, vacuum or sweep\n3. Quick bathroom wipe-down\n4. Any other spots that need attention\n5. Do a final walkthrough to make sure everything looks good
+DTEND:20260529T153500Z
+DTSTART:20260529T143500Z
+SUMMARY:Clean the House
+UID:9fc73bb2-6587-447c-b9e8-970119e0592e@9fc7.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Explore 2-3 note-taking approaches for video editing content (Notion table\, timestamped docs\, sketchnotes)\n2. Pick the method that feels most sustainable for you and set it up\n3. Watch the first video and take notes using your new system\n4. Watch the second video and continue\n5. Review what you captured — tweak the system if needed
+DTEND:20260529T123500Z
+DTSTART:20260529T110500Z
+SUMMARY:Study 400 Editing Videos — Note-Taking Setup + Watch 2 Videos
+UID:5f404870-6cb6-465e-bdca-b13dd5cd0dfe@5f40.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Open the Outreach database in Notion\n2. Go through each prospect and watch or skim their content\n3. Identify 2-3 best video candidates per prospect\n4. Note specific timestamps of clips that would make strong edits\n5. Write everything into a reference doc or Notion page for use in the re-edit session
+DTEND:20260528T124000Z
+DTSTART:20260528T104000Z
+SUMMARY:HVR — Identify Videos & Timestamps for Prospects
+UID:70434579-e14f-4634-9b95-da7afc447b2f@7043.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Get ready and head out (leave by 8:40 PM)\n2. Warm up for 5–10 minutes\n3. Work out — push whatever you’re feeling tonight\n4. Cool down and head home
+DTEND:20260524T050000Z
+DTSTART:20260524T040000Z
+SUMMARY:Gym with Brother
+UID:011abc54-b16c-45b1-aa91-f220f88a8b42@011a.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Open the Graphics folder in Downloads and work through the AE Loader assets. Review\, organize\, or process whatever needs attention. Make meaningful forward progress on the folder.
+DTEND:20260519T014000Z
+DTSTART:20260519T001000Z
+SUMMARY:AE Loader — Graphics Folder Work
+UID:d85ccfae-c564-4db5-93ab-16733f75209b@d85c.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Grab your book and find a comfortable spot away from screens\n2. Read pages 34-43 (Chapter 2) at your own pace\n3. Jot down any standout ideas or passages as you go\n4. When done\, spend 5 minutes summarizing the key takeaway from the chapter in your own words
+DTEND:20260528T134500Z
+DTSTART:20260528T124000Z
+SUMMARY:Read Pages 34–43 — Chapter 2
+UID:5407cc55-0c30-4f33-b787-ebacfad0da58@5407.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Open Instagram\, TikTok\, YouTube\, and Twitter/X\n2. Search for content creators in your target niche\n3. Evaluate each prospect against your screening criteria\n4. Log each qualifying prospect into the Screening database in Notion\n5. Aim for 20 prospects total — track count as you go\n6. Note follower count\, content style\, and engagement rate for each
+DTEND:20260522T093000Z
+DTSTART:20260522T073000Z
+SUMMARY:HVR Outreaching — Social Media Prospect Scraping
+UID:74642132-eddd-4046-9ab5-c021682054d4@7464.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Open MVS Studios in Notion and go through every page\n2. Open a Google Doc and write down everything that is broken\, missing\, or needs improvement\n3. Prioritize the list by impact\n4. Start fixing the highest-priority items (Invoices DB math is first)\n5. Write a Python script to fix invoice totals and output relevant stats\n6. Test the script and note what’s left for next session
+DTEND:20260523T093000Z
+DTSTART:20260523T073000Z
+SUMMARY:MVS/Jarwix Notion Rework — Audit & Fix Pages
+UID:0b494886-6be5-466f-9675-6e7d16138915@0b49.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Open The Psychology of Persuasion PDF in Adobe Acrobat\n2. Read Pages 11–23 (Chapter One) without rushing\n3. Highlight any words\, quotes\, or concepts you want to remember\n4. Add images or annotations to key words in Acrobat\n5. When done\, write a summary in your Notes: what did you read\, and what can you do with this information?\n6. Attach the notes to the book’s page in Notion
+DTEND:20260523T120000Z
+DTSTART:20260523T110000Z
+SUMMARY:Finish Reading 3 Books — Ch. 1 Psychology of Persuasion (Pages 11–23)
+UID:9a890753-acd5-43a7-9819-999957f66f06@9a89.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Explore 2-3 note-taking approaches for video editing content (Notion table\, timestamped docs\, sketchnotes)\n2. Pick the method that feels most sustainable for you and set it up\n3. Watch the first video and take notes using your new system\n4. Watch the second video and continue\n5. Review what you captured — tweak the system if needed
+DTEND:20260529T123500Z
+DTSTART:20260529T110500Z
+SUMMARY:Study 400 Editing Videos — Note-Taking Setup + Watch 2 Videos
+UID:733a9975-43ba-43e5-8854-89d90903ed2a@733a.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:1. Open YouTube\, X\, and Skool\n2. Search for content creators/educators in your niche\n3. Evaluate each against your existing screening criteria\n4. Log leads 24–31 into the Screening database in Notion (name\, platform\, follower count\, content style\, engagement)\n5. Simultaneously build a Google Doc or Notion page titled "HVR Outreach Criteria" — write down what made each lead qualify or not qualify as you go\n6. Include patterns: niche signals\, engagement benchmarks\, content style tells\, red flags\n7. Aim for 8 qualified leads + a usable criteria doc by end of session
+DTEND:20260524T013000Z
+DTSTART:20260523T230000Z
+SUMMARY:HVR Outreaching — Find Leads 24–31 + Build Outreach Criteria Doc
+UID:28f6fb77-aa59-4642-85c4-8d9ecf872abe@28f6.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Research how existing storyboarding tools and AE extensions are structured. Gather references\, take notes on UX patterns and technical architecture relevant to building Freebird's storyboard feature inside After Effects.
+DTEND:20260519T024000Z
+DTSTART:20260519T014000Z
+SUMMARY:Freebird — Storyboard Feature Research
+UID:3be95f75-eab2-4c3d-a9b7-0fe8f969cc4a@3be9.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:1. Open your AE_Loader_Bug_Log.txt from this morning\n2. Find the UI to AE JSX script issue at the top of the list\n3. Share the bug log + relevant code with Claude to get targeted fixes\n4. Implement the fix so the JSX script works across every UI\n5. Test it thoroughly in AE\n6. Log what’s working and what’s still left in the bug doc
 DTEND:20260524T102000Z
 DTSTART:20260524T082000Z
 SUMMARY:AE Loader — Fix UI to AE JSX Script
-UID:0ee5ca3d-7856-480b-b8c3-bc833c87f82c@0ee5.org
+UID:49d88e57-4fa6-4dd5-b4fb-d2726aea8023@49d8.org
 END:VEVENT
 END:VCALENDAR
