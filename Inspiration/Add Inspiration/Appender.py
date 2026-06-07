@@ -8,8 +8,8 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 # ─── CONFIG ─────────────────────────────────────────────
-NOTION_API_KEY = "ntn_z87966143341wFDpXUisYGSE1LQMxiVuwv2WWZgnJ3q3LR"
-DATABASE_ID = "2ae20c51aebe8087bf39d4beb6fd5874"
+NOTION_KEY = os.environ.get("NOTION_KEY", "")
+INSPIRATION_DB_ID = os.environ.get("INSPIRATION_DB_ID", "")
 NOTION_VERSION = "2022-06-28"
 NAME_PREFIX = "Inspiration"
 
@@ -45,7 +45,7 @@ def add_to_notion(title, url):
     video_id = url.split("v=")[1]
     thumbnail_url = f"https://img.youtube.com/vi/{video_id}/maxresdefault.jpg"
     data = {
-        "parent": {"database_id": DATABASE_ID},
+        "parent": {"database_id": INSPIRATION_DB_ID},
         "cover": {"type": "external", "external": {"url": thumbnail_url}},
         "properties": {
             "Name": {"title": [{"text": {"content": title}}]},
@@ -55,7 +55,7 @@ def add_to_notion(title, url):
     requests.post(
         "https://api.notion.com/v1/pages",
         headers={
-            "Authorization": f"Bearer {NOTION_API_KEY}",
+            "Authorization": f"Bearer {NOTION_KEY}",
             "Notion-Version": NOTION_VERSION,
             "Content-Type": "application/json"
         },
@@ -82,11 +82,11 @@ print("Fetching existing Notion pages...")
 notion_items = []
 next_cursor = None
 while True:
-    query_url = f"https://api.notion.com/v1/databases/{DATABASE_ID}/query"
+    query_url = f"https://api.notion.com/v1/databases/{INSPIRATION_DB_ID}/query"
     query_data = {"start_cursor": next_cursor} if next_cursor else {}
     res = requests.post(
         query_url,
-        headers={"Authorization": f"Bearer {NOTION_API_KEY}", "Notion-Version": NOTION_VERSION},
+        headers={"Authorization": f"Bearer {NOTION_KEY}", "Notion-Version": NOTION_VERSION},
         json=query_data
     ).json()
     notion_items.extend(res.get("results", []))
