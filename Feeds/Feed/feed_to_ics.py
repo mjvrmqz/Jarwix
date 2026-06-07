@@ -5,14 +5,14 @@ from datetime import datetime, timezone
 from ics import Calendar, Event
 
 # === CONFIG ===
-NOTION_TOKEN = os.environ.get("NOTION_TOKEN", "")
-DATABASE_ID  = "29520c51aebe80798d10db123c986db0"
+NOTION_KEY = os.environ.get("NOTION_KEY", "")
+FEED_DB_ID  = os.environ.get("FEED_DB_ID", "")
 
 if not NOTION_TOKEN:
-    raise RuntimeError("NOTION_TOKEN environment variable not set.")
+    raise RuntimeError("NOTION_KEY environment variable not set.")
 
 HEADERS = {
-    "Authorization": f"Bearer {NOTION_TOKEN}",
+    "Authorization": f"Bearer {NOTION_KEY}",
     "Notion-Version": "2022-06-28",
     "Content-Type": "application/json",
 }
@@ -48,11 +48,11 @@ def create_ics(events):
         cal.events.add(e)
     with open("Feeds/Work Feed/Work Feed.ics", "w") as f:
         f.writelines(cal)
-    print(f"  Wrote Feeds/Work Feed/Work Feed.ics ({len(cal.events)} events)")
+    print(f"  Wrote Feeds/Feed/Feed.ics ({len(cal.events)} events)")
 
 def main():
     print("Querying Work database...")
-    events = query_database(DATABASE_ID)
+    events = query_database(FEED_DB_ID)
     print(f"  {len(events)} entries found")
     create_ics(events)
     now = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
