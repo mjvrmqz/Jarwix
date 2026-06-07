@@ -16,7 +16,7 @@ When MJ wants to add a task, first confirm: is this task tied to a specific proj
 
 ## Optional: Claude-Generated Task Suggestions
 
-If MJ says something like "suggest some tasks", "I don't know what to plan", or "give me ideas" — generate 6–10 suggested tasks before generating any script. Read in this order:
+If MJ says something like "suggest some tasks", "I don't know what to plan", or "give me ideas" — generate 6–10 suggested tasks. Read in this order:
 
 1. **Brain Dump databases** — open each Active project page and check its Brain Dump for unread entries (Done? = unchecked). Highest priority signal for project-related suggestions.
 2. **Task Dump** — check for any personal task ideas already written down. These take priority over inferred personal tasks.
@@ -29,39 +29,25 @@ Present suggestions as a numbered list with: task name, one-line description, wh
 
 ---
 
-## Terminal Script Flow
+## Adding a Task — Conversational Property Collection
 
-After MJ confirms task(s) to add, generate a Python script to run in Terminal.
+After MJ confirms a task to add, Claude asks the following questions conversationally in chat — one grouped message, not one question at a time. MJ replies and Claude writes directly to Notion.
 
-The script asks these 8 questions interactively, one at a time with numbered options:
-
-1. **Status** — Available, Unavailable
-2. **Type** — Organization, Planning, Research, Analytical, Learning, Admin, Setup, Review
-3. **Constraints** — Morning Only, Evening Only, Requires Quiet, Requires Home, Requires Computer, Requires Setup, None (multi-select, comma-separated)
-4. **Location** — Away, Home
-5. **Focus** — Attentive, Relaxed, Intense, Flow, Maintenance, None
-6. **Hours** — 15 min, 30 min, 45 min, 1 hr, 1.5 hrs, 2 hrs, 3 hrs, 4+ hrs
-7. **Urgency** — Low Urgency, Medium Urgency, High Urgency, Immovable
+Questions to ask:
+1. **Status** — Available or Unavailable?
+2. **Type** — Organization, Planning, Research, Analytical, Learning, Admin, Setup, or Review?
+3. **Constraints** — Any of: Morning Only, Evening Only, Requires Quiet, Requires Home, Requires Computer, Requires Setup — or None? (can pick multiple)
+4. **Location** — Home or Away?
+5. **Focus** — Attentive, Relaxed, Intense, Flow, Maintenance, or None?
+6. **Hours** — 15 min, 30 min, 45 min, 1 hr, 1.5 hrs, 2 hrs, 3 hrs, or 4+ hrs?
+7. **Urgency** — Low, Medium, High, or Immovable?
 8. **Tags:**
    - Work project Tasks database: Cognitive Work, Admin Work, Learning, Outreach
    - Other database (personal): Exercise, Wellbeing, Chores, Other, Admin, Outreach, Cognitive, Learning, Appointments
 
-If Claude pre-filled suggestions, those appear as defaults in brackets — MJ hits Enter to accept or types a number to override.
+If Claude pre-filled suggestions with recommended properties, present those as defaults — MJ can confirm or override any of them.
 
-The script prints a JSON block at the end. MJ pastes it back into chat. Claude then generates the Details summary, builds the checklist, creates the Notion page in the correct database, and runs Task Content Summary.py.
-
-Task Content Summary.py is located at: `/Users/mjvrmqz/Personal/Scripts/Notion/Jarwix/Calendar Feeds/Info/`
-
-Example Terminal command:
-```
-cd "/Users/mjvrmqz/Personal/Scripts/Notion/Jarwix/Calendar Feeds/Info"
-echo '{
-  "mode": "create",
-  "page_id": "PAGE_ID_HERE",
-  "checklist": ["Step 1", "Step 2", "Step 3"]
-}' | python3 "Task Content Summary.py"
-```
-Always analyze the script before generating the command to ensure correct input formatting.
+Once MJ confirms, Claude generates the Details summary, builds the Actionable Steps checklist, and creates the Notion page in the correct database — all written directly via the Notion API.
 
 ---
 
@@ -77,6 +63,6 @@ Once tasks exist in Projects or Other, MJ can select which ones to schedule. Pre
 Every event written to Feed must include:
 - `' Calendar'` (title — note the leading space in the property key)
 - `Time` (date — ISO 8601 with explicit PT offset: `-07:00`)
-- `Actionable Steps` (rich text — checklist)
+- `Actionable Steps` (rich text — checklist written directly to Notion by Claude)
 - `Done?` (select — default: `Skipped`)
 - `Type` (select — `Work` for work tasks, `Personal` for personal tasks)

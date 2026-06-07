@@ -127,7 +127,7 @@ Partial splits: update the source task's Hours property to reflect remaining hou
 Every event written to Feed must include:
 - `' Calendar'` (title — note the leading space in the property key)
 - `Time` (date — ISO 8601 with explicit PT offset: `-07:00`)
-- `Actionable Steps` (rich text — checklist)
+- `Actionable Steps` (rich text — checklist written directly to Notion by Claude)
 - `Done?` (select — default: `Skipped`)
 - `Type` (select — `Work` for work tasks, `Personal` for personal tasks)
 
@@ -181,22 +181,7 @@ Then for each event:
 After all events, include a brief **"What didn't make the cut"** section — one to three sentences explaining the general reasons certain tasks or projects were left out. Not a task-by-task breakdown. The goal is to make MJ feel like nothing was accidentally forgotten.
 
 Once MJ approves:
-1. For project tasks: write to the project's internal Tasks database, then write to Feed
-2. For Other tasks: write straight to Feed
+1. For project tasks: write to the project's internal Tasks database, then write to Feed (including Actionable Steps written directly via Notion API)
+2. For Other tasks: write straight to Feed (including Actionable Steps written directly via Notion API)
 3. For tasks from Other database: delete from Other
-4. Run Task Content Summary.py for each event's checklist
-5. Log Day Type to State database
-
-### Task Content Summary.py
-Located at: `/Users/mjvrmqz/Personal/Scripts/Notion/Jarwix/Calendar Feeds/Info/`
-
-Example Terminal command:
-```
-cd "/Users/mjvrmqz/Personal/Scripts/Notion/Jarwix/Calendar Feeds/Info"
-echo '{
-  "mode": "create",
-  "page_id": "PAGE_ID_HERE",
-  "checklist": ["Step 1", "Step 2", "Step 3"]
-}' | python3 "Task Content Summary.py"
-```
-Always analyze the script before generating the command to ensure correct input formatting.
+4. Log Day Type to State database

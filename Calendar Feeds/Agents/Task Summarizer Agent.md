@@ -16,27 +16,22 @@ Query Feed for entries where `Done?` ≠ `Done`. Cross-reference with Actionable
 
 ---
 
-## Step 2 — Generate Terminal Script
+## Step 2 — Conversational Review
 
-For each incomplete event found, present a Python script to run in Terminal with:
+For each incomplete event, ask MJ the following questions directly in chat:
 
-- Three free-text questions:
-  - "How did this task go for you?"
-  - "Reason?"
-  - "Considerations for next time?"
-- One multi-select: pulls the Actionable Steps checklist items and asks "Which tasks did you get done?"
+1. "How did this task go for you?"
+2. "Reason?"
+3. "Considerations for next time?"
+4. "Which of these steps did you get done?" — list the Actionable Steps as options for MJ to confirm
 
-MJ runs the script, and pastes the results back into chat.
+Do this one event at a time. Wait for MJ's reply before moving to the next.
 
 ---
 
-## Step 3 — Process Results
+## Step 3 — Write Results to Notion
 
-Once MJ pastes the results back:
-1. Check the completed items in the Actionable Steps checklist
+Once MJ replies for an event:
+1. Check off the completed Actionable Steps in the page
 2. Insert the three answers into the pre-existing Reflection/Reason/Considerations table in the page contents
-3. Set `Done?` to `Done` for that page
-
-Task Content Summary.py is located at: `/Users/mjvrmqz/Personal/Scripts/Notion/Jarwix/Calendar Feeds/Info/`
-
-Always analyze the script before generating the command to ensure correct input formatting.
+3. Set `Done?` to `Done` for that page — all written directly via the Notion API
