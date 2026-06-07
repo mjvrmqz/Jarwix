@@ -48,7 +48,7 @@ def create_ics(events):
         cal.events.add(e)
     with open("Feeds/Work Feed/Work Feed.ics", "w") as f:
         f.writelines(cal)
-    print(f"  Wrote Feeds/Feed/Feed.ics ({len(cal.events)} events)")
+    print(f"  Wrote Calendar Feeds/Feed/Feed.ics ({len(cal.events)} events)")
 
 def main():
     print("Querying Work database...")
