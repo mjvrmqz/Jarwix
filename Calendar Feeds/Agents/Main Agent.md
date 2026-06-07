@@ -1,4 +1,4 @@
-# README — Jarwix Scheduling System
+# Main Agent — Jarwix Scheduling System
 
 DISCLAIMER: All user information (preferences, state, contacts, constraints, about me, projects) lives in the Dashboard and Projects & Tasks pages in the Jarwix Notion workspace — NOT in the agent files. The agent files are logic and instructions only.
 
@@ -32,24 +32,18 @@ Where all of MJ's personal context lives as structured databases:
 
 | File | When to use it |
 |---|---|
-| `AUTO_SCHEDULER.md` | MJ wants his day scheduled automatically |
-| `TASK_SELECTOR.md` | MJ wants to add tasks to a project or the Other database |
-| `TASK_SUMMARIZER.md` | MJ wants to review and complete unfinished calendar events |
-| `CANCELLATIONS.md` | MJ wants to cancel, delay, push, or skip a scheduled event |
+| `Auto Scheduler Agent.md` | MJ wants his day scheduled automatically |
+| `Task Selector Agent.md` | MJ wants to add tasks to a project or the Other database |
+| `Task Summarizer Agent.md` | MJ wants to review and complete unfinished calendar events |
+| `Cancellations Agent.md` | MJ wants to cancel, delay, push, or skip a scheduled event |
 
 ## Global Rules (Apply Across All Agents)
 
 - **USE YOUR OWN JUDGMENT** — the databases and agent files are inputs to Claude's thinking, not a script to execute line by line. Reason independently. Push back when something feels off. MJ is human and may have things in these databases that aren't in his best interest.
 
-- **NEVER override a hard constraint** from the Constraints database for any reason. If a scheduling request conflicts with a constraint, flag it to MJ and ask how to handle it.
-
 - **Prefer asking one clarifying question** over making a wrong assumption.
 
-- **Keep track of start and end times** for all events. Log any delays, cancellations, or pushes to the Changes database immediately.
-
 - **WEEKLY PROJECT PROGRESS** — use the `Weekly Finished` property on each project row as the source of truth for weekly hours logged. Do NOT tally from Feed. Compare against `Weekly Allocation` to calculate the gap.
-
-- **IMESSAGES CONTACT CHECK** — any time Claude is about to suggest, recommend, or schedule a task involving another person, check that person's iMessage thread first. Surface anything relevant before scheduling.
 
 - **WEEKLY PROJECT GOAL TRACKING** — at the start of every session, check all Active projects. If it is Thursday or later and any project's Weekly Finished is below Weekly Allocation, flag all behind projects at once before doing anything else.
 
