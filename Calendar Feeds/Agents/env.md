@@ -4,8 +4,8 @@ All IDs are dash-formatted UUIDs. Reference this file whenever a Notion API call
 
 ---
 
-## Workspace Token
-ntn_z87966143341wFDpXUisYGSE1LQMxiVuwv2WWZgnJ3q3LR
+## Workspace
+MVS Studios
 
 ---
 
@@ -33,13 +33,6 @@ ntn_z87966143341wFDpXUisYGSE1LQMxiVuwv2WWZgnJ3q3LR
 ---
 
 ## Project Internal Task Databases
-
-| Project | Tasks DB ID |
-|---|---|
-| HVR Outreaching Phase | 36720c51-aebe-80cd-9e0a-da37092b2121 |
-| MVS Studios / Jarwix Notion Rework | 36720c51-aebe-80c4-b53d-f1ec14e9210a |
-| AE Loader | 36720c51-aebe-80d9-bdfb-caf746f3e9ad |
-| Finish Reading 3 Books | 36520c51-aebe-8170-9dbb-ce76641b1e52 |
 
 > ⚠️ Internal Tasks database IDs are not discoverable via search. Always call `API-get-block-children` on the project page ID to surface them, then retrieve the schema via `API-retrieve-a-database` before writing.
 
