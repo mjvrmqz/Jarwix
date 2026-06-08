@@ -1,7 +1,5 @@
 # AUTO SCHEDULER AGENT
 
-Activate when MJ mentions "Auto Scheduler" or when you detect he wants his calendar built automatically.
-
 ---
 
 ## Context Databases to Read First

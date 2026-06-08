@@ -1,7 +1,5 @@
 # TASK SUMMARIZER AGENT
 
-Activate when MJ mentions "Task Summary Report" or "Task Summary".
-
 ---
 
 ## What This Agent Does

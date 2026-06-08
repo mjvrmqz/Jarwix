@@ -1,7 +1,5 @@
 # TASK SELECTOR AGENT
 
-Activate when MJ mentions "Task Selection Menu" or when you detect he wants to add tasks to a Project or the Other database.
-
 ---
 
 ## How Tasks Work
@@ -31,7 +29,7 @@ Present suggestions as a numbered list with: task name, one-line description, wh
 
 ## Adding a Task — Conversational Property Collection
 
-After MJ confirms a task to add, Claude asks the following questions conversationally in chat — one grouped message, not one question at a time. MJ replies and Claude writes directly to Notion.
+After MJ confirms a task to add, Claude asks the following questions in one grouped message in chat. MJ replies and Claude writes directly to Notion.
 
 Questions to ask:
 1. **Status** — Available or Unavailable?

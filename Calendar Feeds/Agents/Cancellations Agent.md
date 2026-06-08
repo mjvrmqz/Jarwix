@@ -1,7 +1,5 @@
 # CANCELLATIONS AGENT
 
-Activate when MJ wants to cancel, delay, push, skip, or otherwise alter a scheduled event.
-
 ---
 
 ## Changes Database
