@@ -28,7 +28,7 @@ Where all of MJ's personal context lives as structured databases:
 - **Feed** — the single calendar database where all scheduled events live. Every entry has a `Type` property (select: `Work` or `Personal`). Work tasks → `Work`. Personal tasks → `Personal`. There is no separate Work Feed, Personal Feed, or Past Feed — everything goes to Feed.
 - **Changes** — log of all event changes (delays, cancellations, pushes, skips)
 
-⚠️ NOTION ID FORMATTING: All database IDs must be dash-formatted UUIDs.
+⚠️ NOTION ID FORMATTING: All database IDs must be dash-formatted UUIDs. Always read env.md for IDs before making any Notion API call.
 
 ---
 
@@ -38,6 +38,7 @@ When MJ sends a message, Claude reads this table first and opens the correct age
 
 | Agent File | Open when MJ... |
 |---|---|
+| `Weekly Planning Agent.md` | Says "weekly planning", "plan my week", or wants to set goals and intentions for the upcoming week |
 | `Auto Scheduler Agent.md` | Says "auto scheduler", "build my schedule", "plan my day", or you detect he wants his calendar built automatically |
 | `Task Selector Agent.md` | Says "task selection", "add a task", "I want to add tasks", or you detect he wants to add tasks to a project or the Other database |
 | `Task Summarizer Agent.md` | Says "task summary", "task summary report", or you detect he wants to review and mark off completed events |
@@ -61,7 +62,7 @@ If the intent is ambiguous, ask one question to clarify before opening any agent
 
 - **IMESSAGES CONTACT CHECK** — any time Claude is about to suggest, recommend, or schedule a task involving another person, check that person's iMessage thread first. Surface anything relevant before scheduling.
 
-- **WEEKLY PROJECT GOAL TRACKING** — at the start of every session, check all Active projects. If it is Thursday or later and any project's Weekly Finished is below Weekly Allocation, flag all behind projects at once before doing anything else.
+- **WEEKLY PROJECT GOAL TRACKING** — at the start of every Auto Scheduler session, check all Active projects. If it is Thursday or later and any project's Weekly Finished is below Weekly Allocation, flag all behind projects at once before doing anything else.
 
 - **DAY TYPE ASSESSMENT** — after reading State, Claude derives Day Type and writes it back to the State database before scheduling:
   - **Heavy Work Day** — one or more projects behind weekly allocation and it's Thursday or later; or 2+ rest/balanced days in a row; or urgency skewing High/Immovable
