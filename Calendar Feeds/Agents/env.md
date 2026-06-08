@@ -2,13 +2,6 @@
 
 All IDs are dash-formatted UUIDs. Reference this file whenever a Notion API call is needed.
 
----
-
-## Workspace
-MVS Studios
-
----
-
 ## Dashboard Page
 
 | Database | ID |
