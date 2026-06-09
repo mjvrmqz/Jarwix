@@ -71,11 +71,19 @@ Once MJ replies, read each goal and map it to an existing project (from this wee
 
 MJ's goals are implicitly ranked by the order he listed them — first goal is highest priority, last is lowest.
 
+**Classify each fixed event MJ named in Step 2 into one of two types before doing any math:**
+
+- **Commitment Event** — a work or personal activity that MJ is actively participating in and that counts as real time spent toward a goal or cap. Examples: gym session with someone, a scheduled client call, a study session with a friend, co-working time. These count against the relevant cap (work or personal) before distributing hours.
+- **Logistical Event** — a neutral obligation that blocks time but doesn't represent productive work or meaningful personal time. Examples: dentist appointment, doctor visit, DMV, car service, waiting on a delivery. These do NOT count against either cap — they just block the calendar slot and reduce available scheduling windows.
+
+Apply this classification to Time Block entries already in Notion as well — classify each one before summing.
+
 **Adjust caps for fixed commitments before distributing:**
-- Sum the total hours consumed by Time Block entries and any new fixed events MJ just named in Step 2.
+- Sum the total hours consumed by Commitment Events only (from both Time Block and MJ's new fixed events).
 - Subtract that total from the appropriate cap (work or personal) before running the percentage split.
-- If a fixed event bleeds into both work and personal time, use judgment on which cap to deduct from.
-- Present the adjusted caps clearly: "After accounting for [X hrs of fixed events], you have [Y hrs work / Z hrs personal] left to distribute."
+- Logistical Events are noted as blocked time in the schedule but do not reduce the hour caps.
+- If a Commitment Event bleeds into both work and personal time, use judgment on which cap to deduct from.
+- Present the adjusted caps clearly: "After accounting for [X hrs of commitment events], you have [Y hrs work / Z hrs personal] left to distribute. [List any logistical events separately as time blocks that won't affect your caps.]"
 
 Distribute the adjusted caps across the relevant projects using a weighted split:
 
@@ -89,7 +97,7 @@ Apply work cap to Work projects only. Apply personal cap to Personal projects on
 Round to sensible increments (0.5 hr minimum). Write the resulting Weekly Allocation value back to each project row in Notion via `API-patch-page`.
 
 Present the allocation to MJ before writing:
-> "After fixed events, you have [Y hrs work / Z hrs personal] available. Here's how I'm splitting across priorities — [Project A]: X hrs, [Project B]: Y hrs, etc. Good?"
+> "After commitment events, you have [Y hrs work / Z hrs personal] available. Here's how I'm splitting across priorities — [Project A]: X hrs, [Project B]: Y hrs, etc. Good?"
 
 Wait for confirmation before writing to Notion.
 
@@ -109,7 +117,7 @@ Rules:
 Present the full task list to MJ before writing anything:
 > "Here's what I'm planning to create for [Project]. Does this look right?"
 
-Wait for approval per project. MJ can add, remove, or edit before anything is written.
+Wait for approval per project. MJ can add, remove, or edit before anything is written. Once approved, all tasks for that project are written to Notion in one pass before moving to the next project.
 
 **For each loose personal intention MJ named in Step 2:**
 - Convert it to a concrete task entry. If it's vague (e.g., "go skiing Tuesday but don't know when"), create it with Status = Available, Location = Away, Day = Tuesday if named (leave unscheduled if not), and populate as much detail as possible from what MJ said.
@@ -129,14 +137,14 @@ Once all tasks are approved, write everything to Notion in one pass:
 4. Create all approved personal intention tasks in the Other database
 5. Write any new fixed events MJ named in Step 2 to the appropriate database:
 
-   **For events with a specific time (e.g., "dentist appointment Wednesday 2pm"):**
-   → Create a new page in **Time Block** (`36820c51-aebe-804d-a724-dcea15e9719c`) via `API-post-page`. The title should be the event name (e.g., "Dentist Appointment"). Include the `Time` property as an ISO 8601 date range with start and end times in PT (`-07:00`). If MJ gave a duration, use it. If not, default to 1 hour.
+   **For Commitment Events and Logistical Events with a specific time (e.g., "dentist appointment Wednesday 2pm", "gym with Alex Thursday 6pm"):**
+   → Create a new page in **Time Block** (`36820c51-aebe-804d-a724-dcea15e9719c`) via `API-post-page`. The title should be the event name. Include the `Time` property as an ISO 8601 date range with start and end times in PT (`-07:00`). If MJ gave a duration, use it. If not, default to 1 hour. Tag the entry type in the title if useful (e.g., "Dentist [Logistical]" vs "Gym — Alex [Commitment]") so Auto Scheduler can apply the correct cap logic.
 
    **For hard limits on availability (e.g., "I can't work Thursday at all", "no calls before noon this week"):**
    → Create a new page in **Constraints** (`36520c51-aebe-80bd-8f09-da0d11785980`) via `API-post-page`.
    - **Title**: short label for the constraint (e.g., "No Work Thursday", "No Calls Before Noon")
-   - **`Details`** (text property): write a plain English sentence describing what the constraint is and why. Example: "MJ has a full-day personal commitment on Thursday and is unavailable for any work tasks." Include the specific day, time window, and any context MJ gave.
-   - **`Time`** (date property): set to the date (or date range) when this constraint is active. Use ISO 8601 with PT offset (`-07:00`). If it's a full day, use a date-only value with no time component. If it's a time window (e.g., no calls before noon), use a start/end range covering that window.
+   - **`Details`** (text property): write a plain English sentence describing what the constraint is and why. Include the specific day, time window, and any context MJ gave.
+   - **`Time`** (date property): set to the date (or date range) when this constraint is active. Use ISO 8601 with PT offset (`-07:00`). If it's a full day, use a date-only value with no time component. If it's a time window, use a start/end range covering that window.
 
    **For vague events with no time yet (e.g., "have a call with someone this week, TBD"):**
    → Create in **Time Block** with date only (no time component) and note "time TBD" in the title. Do not block a time slot — just register the commitment so Auto Scheduler knows to ask.
@@ -160,14 +168,17 @@ Projects set Active: [list]
 Projects set Inactive: [list]
 New projects created: [list or none]
 
-Fixed events logged: [list or none]
+Fixed events logged:
+  Commitment Events (count toward caps): [list or none]
+  Logistical Events (time blocked only): [list or none]
+
 Personal intentions added to Other: [list or none]
 
 Day plan:
 Mon [type] | Tue [type] | Wed [type] | Thu [type] | Fri [type] | Sat [type] | Sun [type]
 
-Total work hours planned: X / [cap] (after [N hrs] fixed events)
-Total personal hours planned: X / [cap] (after [N hrs] fixed events)
+Total work hours planned: X / [cap] (after [N hrs] commitment events)
+Total personal hours planned: X / [cap] (after [N hrs] commitment events)
 
 You're set. Auto Scheduler will handle the rest daily.
 ```
@@ -178,8 +189,9 @@ You're set. Auto Scheduler will handle the rest daily.
 
 - Never write anything to Notion before MJ confirms it. Every write step has a confirmation gate.
 - If MJ's goals are vague or missing detail, ask one follow-up question per goal before generating tasks — don't guess on something this foundational.
-- If MJ's hour cap is unrealistically low given his goals (after fixed event deduction), flag it honestly: "After fixed events you have X hrs of work available, but these goals would realistically take Y hrs. Want to adjust the cap or trim a goal?"
+- If MJ's hour cap is unrealistically low given his goals (after commitment event deduction), flag it honestly: "After commitment events you have X hrs of work available, but these goals would realistically take Y hrs. Want to adjust the cap or trim a goal?"
 - Deadlines still matter — if a project has a deadline this week, make sure it gets enough hours regardless of goal ranking. Flag it if the allocation looks too tight.
 - If MJ skips the day types question, default to: Mon-Medium, Tue-Medium, Wed-Medium, Thu-Medium, Fri-Medium, and flag that you defaulted so he can correct it.
 - If a loose personal intention MJ names sounds like it belongs in Time Block (e.g., it has a specific time), route it there instead of Other, and tell him you did.
 - **Never read or modify project rows from past or future weeks.** The `Week` filter is the boundary. If a project row has no `Week` set, flag it to MJ and ask if it belongs to this week before including it.
+- When classifying a fixed event as Commitment vs Logistical, use common sense. If you're unsure, default to Logistical (don't count it against the cap) and flag it to MJ so he can correct it.
