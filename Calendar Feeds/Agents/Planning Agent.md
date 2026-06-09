@@ -122,9 +122,19 @@ Once all tasks are approved, write everything to Notion in one pass:
 3. Create all approved tasks in the correct internal Tasks databases
 4. **[Gap 4]** Create all approved personal intention tasks in the Other database
 5. **[Gap 2]** Write any new fixed events MJ named in Step 2 to the appropriate database:
-   - Events with a specific time (e.g., "dentist appointment Wednesday 2pm") → create an entry in **Time Block** (`36820c51-aebe-804d-a724-dcea15e9719c`) with the correct date/time in ISO 8601 PT format.
-   - Hard constraints (e.g., "I can't work Thursday at all") → create an entry in **Constraints** (`36520c51-aebe-80bd-8f09-da0d11785980`).
-   - Vague events with no time yet (e.g., "have a call with someone this week, TBD") → create in Time Block with date only and note "time TBD" in the event details. Do not block a time slot — just register the commitment so Auto Scheduler knows to ask.
+
+   **For events with a specific time (e.g., "dentist appointment Wednesday 2pm"):**
+   → Create a new page in **Time Block** (`36820c51-aebe-804d-a724-dcea15e9719c`) via `API-post-page`. The title should be the event name (e.g., "Dentist Appointment"). Include the `Time` property as an ISO 8601 date range with start and end times in PT (`-07:00`). If MJ gave a duration, use it. If not, default to 1 hour.
+
+   **For hard limits on availability (e.g., "I can't work Thursday at all", "no calls before noon this week"):**
+   → Create a new page in **Constraints** (`36520c51-aebe-80bd-8f09-da0d11785980`) via `API-post-page`.
+   - **Title**: short label for the constraint (e.g., "No Work Thursday", "No Calls Before Noon")
+   - **`Details`** (text property): write a plain English sentence describing what the constraint is and why. Example: "MJ has a full-day personal commitment on Thursday and is unavailable for any work tasks." Include the specific day, time window, and any context MJ gave.
+   - **`Time`** (date property): set to the date (or date range) when this constraint is active. Use ISO 8601 with PT offset (`-07:00`). If it's a full day, use a date-only value with no time component. If it's a time window (e.g., no calls before noon), use a start/end range covering that window.
+
+   **For vague events with no time yet (e.g., "have a call with someone this week, TBD"):**
+   → Create in **Time Block** with date only (no time component) and note "time TBD" in the title. Do not block a time slot — just register the commitment so Auto Scheduler knows to ask.
+
 6. **[Gap 3]** Write the planned Day Type (Light/Medium/Heavy) for each day MJ specified to the **State** database (`36420c51-aebe-80b5-ba08-f6a5c28b1987`):
    - Find or create a State entry per day using that day's date.
    - Set the `Planned Day Type` property (select: Light / Medium / Heavy).
