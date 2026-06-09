@@ -23,6 +23,7 @@ Before any scheduling logic runs, query all of the following from Notion:
 
 **Calendar Feeds:**
 - **Feed** — query for recent history. Feed is the authoritative record of what has been scheduled and completed.
+- **Changes** — query for any entries in the past 14 days. Use this to identify patterns: tasks that are repeatedly delayed, cancelled at certain times of day, or frequently pushed. Apply these patterns silently when building the schedule — e.g. if a task type keeps getting pushed out of the morning window, don't put it there. If a pattern is strong enough to visibly affect a scheduling decision, mention it in the justification for that event.
 
 ---
 
