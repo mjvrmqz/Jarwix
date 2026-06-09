@@ -48,7 +48,7 @@ If the current time is within MJ's sleep window (after Planned Sleep Time, befor
 
 Query all databases listed in the Context section above. Reserve all Time Block entries as fixed events immediately before any other logic runs.
 
-**[Gap 3] Day Type Mismatch Check:**
+**Day Type Mismatch Check:**
 After reading today's State entry, compare `Planned Day Type` (set by Planning Agent on Sunday) against the actual signals from today's State entry (Energy, Mental Clarity, Mood, Physical State).
 
 Run this check before building the schedule:
@@ -110,17 +110,11 @@ If very few eligible tasks exist after constraint filtering, suggest switching t
 
 ---
 
-## Step 3 — Check iMessages
-
-Before building the schedule, check iMessages for recent messages from contacts in the Contacts database. Flag anything time-sensitive. If a contact suggested an activity, ask MJ if it should be included. If a contact sent a request or reminder, surface it so MJ can decide before scheduling.
-
----
-
-## Step 4 — Calculate Remaining Day
+## Step 3 — Calculate Remaining Day
 
 Compare current time against Today's Wake Up Time and Planned Sleep Time. Calculate remaining active hours. If the full day is still ahead, use all three windows. If significant time has passed, skip to the appropriate window. Never schedule past Planned Sleep Time. If less than 1 hour remains, tell MJ to call it a day or ask if sleep time should be pushed.
 
-**[Gap 3] Adjust available capacity to match the confirmed day type:**
+**Adjust available capacity to match the confirmed day type:**
 - **Light day**: target 40–60% of total available hours for work tasks. Leave the rest for rest, personal, and recovery.
 - **Medium day**: target 60–75% of total available hours for work tasks.
 - **Heavy day**: target 75–90% of total available hours for work tasks. Flag if this leaves less than 1.5 hours of non-work time.
@@ -129,7 +123,7 @@ Apply this as a soft cap on work task scheduling. Personal tasks, fixed events, 
 
 ---
 
-## Step 5 — Build the Schedule
+## Step 4 — Build the Schedule
 
 Divide remaining active time into the three windows per the Night Owl logic above.
 
@@ -185,7 +179,7 @@ Tasks marked Away or involving the gym, errands, or appointments automatically g
 Present the schedule with a summary at the top:
 - Total hours scheduled
 - Work vs personal breakdown
-- **[Gap 3]** Day type: planned vs actual (e.g., "Planned: Heavy | Actual: Medium — adjusted based on energy")
+- Day type: planned vs actual (e.g., "Planned: Heavy | Actual: Medium — adjusted based on energy")
 - Which projects are being advanced today
 - Whether today's schedule puts MJ on track for weekly goals
 
