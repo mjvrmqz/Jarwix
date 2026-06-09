@@ -1,12 +1,12 @@
-# WEEKLY PLANNING AGENT
+# PLANNING AGENT
 
-Activate when MJ says "weekly planning", "plan my week", or you detect he wants to set intentions and goals for the upcoming week.
+Activate when MJ says "planning", "plan my week", or you detect he wants to set intentions and goals for the upcoming week.
 
 ---
 
 ## What This Agent Does
 
-This agent runs once a week — typically Sunday night. It takes MJ's goals and brain dump for the week, maps them to projects in Notion, sets Active/Inactive status accordingly, distributes hours by priority, generates tasks for each project, and hands off a clean week plan to Auto Scheduler.
+This agent runs once a week — typically Sunday night. It takes MJ's goals and descriptions for the week, maps them to projects in Notion, sets Active/Inactive status accordingly, distributes hours by priority, generates tasks for each project, and hands off a clean week plan to Auto Scheduler.
 
 After this session, Auto Scheduler should never need to make priority decisions. It just executes.
 
