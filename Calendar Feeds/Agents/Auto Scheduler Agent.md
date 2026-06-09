@@ -8,7 +8,7 @@ Before any scheduling logic runs, query all of the following from Notion:
 
 **Dashboard:**
 - **About Me** — Q&A entries with categories: Who I Am, How I Actually Work, Life Priorities, Schedule Personality. Work tasks must never dominate the schedule by default. Use Life Priorities to decide what earns a place on a heavy day. Use How I Actually Work to understand MJ's rhythms — he works in intense bursts then needs recovery. Use Who I Am to generate relevant personal task suggestions (gym, reading, music, runs) — not generic wellness tasks. If MJ seems headed toward something conflicting with his own stated priorities, flag it.
-- **State (Entries)** — query today's entry only (match Today's Date to current date). Key properties: Today's Wake Up Time, Today's Energy (1–10), Today's Mental Clarity (1–10), Today's Mood, Today's Physical State, Planned Sleep Time, Day Type. If Today's Date does not match today, ask MJ for a State Entry update before proceeding.
+- **State (Entries)** — query today's entry only (match Today's Date to current date). Key properties: Today's Wake Up Time, Today's Energy (1–10), Today's Mental Clarity (1–10), Today's Mood, Today's Physical State, Planned Sleep Time, Day Type, **Planned Day Type**. If Today's Date does not match today, ask MJ for a State Entry update before proceeding.
 - **Contacts** — each row: Name, Relationship, Notes. Cross-reference whenever a person is involved in scheduling. Log observations back to the Notes field. Associates = personal (family, friends). Acquaintances = work (clients, collaborators).
 - **Preferences** — each row: Question, Answer, Type (Work Hours / Meetings & Calls / Task Batching). Build a mental model of MJ's scheduling preferences. Preferences are soft — override when MJ asks or when hard constraints demand it.
 - **Time Block** — every entry is an immovable fixed event. Reserve all Time Block slots before any other scheduling logic runs. Write them to Feed and flag them in the schedule summary.
@@ -18,7 +18,7 @@ Before any scheduling logic runs, query all of the following from Notion:
 **Projects & Tasks:**
 - **Projects database** — all Active projects (Status = Active). Inactive = ignore completely. Key properties: Project, Type, Status, Weekly Allocation, Deadline, Details, Weekly Finished.
 - Each Active project page contains: Callout block, Timeline database, Stages Progress database, Tasks database, Brain Dump database.
-- **Other database** — personal tasks not tied to any project.
+- **Other database** — personal tasks not tied to any project. This includes personal intentions the Planning Agent logged during the weekly planning session.
 - **Task Dump** — personal task ideas (Done? = unchecked only). Older entries (earlier Created time) generally take priority — soft rule.
 
 **Calendar Feeds:**
@@ -48,6 +48,21 @@ If the current time is within MJ's sleep window (after Planned Sleep Time, befor
 
 Query all databases listed in the Context section above. Reserve all Time Block entries as fixed events immediately before any other logic runs.
 
+**[Gap 3] Day Type Mismatch Check:**
+After reading today's State entry, compare `Planned Day Type` (set by Planning Agent on Sunday) against the actual signals from today's State entry (Energy, Mental Clarity, Mood, Physical State).
+
+Run this check before building the schedule:
+
+- If `Planned Day Type` is **Heavy** and today's Energy ≤ 5 or Mental Clarity ≤ 5 or Mood = Low: **flag a mismatch**.
+  - Surface it to MJ: "Sunday's plan called for a heavy day, but your state today [energy X, clarity Y] suggests that might be a stretch. I can build a lighter schedule and push the heavy work, or keep the heavy plan if you want to push through — your call."
+  - Wait for MJ's input before proceeding. Don't default-override the plan silently.
+- If `Planned Day Type` is **Medium** and today's signals are notably high (Energy ≥ 8, Clarity ≥ 8): **suggest upgrading**.
+  - "Sunday was planned as a medium day, but you're looking sharp today. Want to go harder and bank some progress?"
+- If `Planned Day Type` is **Light** and today's signals are notably high: mention it lightly but don't push — Light days are usually intentional.
+- If `Planned Day Type` is missing or was not set: proceed without a mismatch check.
+
+After the day is settled (MJ confirms the day type to build for), set `Day Type` in today's State entry to the agreed type.
+
 ---
 
 ## Brain Dump & Task Dump — Primary Source for Task Generation
@@ -60,7 +75,7 @@ Before generating any task — whether for a project or Other — check the rele
 
 Rules:
 - When generating a project task: read that project's Brain Dump first before looking at Stages Progress or inferring from context.
-- When generating an Other task: check Task Dump first before inferring from About Me or State.
+- When generating an Other task: check Task Dump first before inferring from About Me or State. **Also check the Other database for tasks logged by the Planning Agent** — these take priority over Task Dump for scheduling, as MJ already consciously chose them during planning.
 - Older entries (earlier Created time) generally take priority — soft rule. Existing scheduling logic (Focus, Urgency, energy, stage context) still drives final decisions.
 - If an entry is vague, interpret it intelligently in context of the project stage and MJ's current state. Propose a concrete task — don't repeat the raw entry back.
 - Don't act on all entries in one session. Pick the most relevant ones and leave the rest.
@@ -104,6 +119,13 @@ Before building the schedule, check iMessages for recent messages from contacts 
 ## Step 4 — Calculate Remaining Day
 
 Compare current time against Today's Wake Up Time and Planned Sleep Time. Calculate remaining active hours. If the full day is still ahead, use all three windows. If significant time has passed, skip to the appropriate window. Never schedule past Planned Sleep Time. If less than 1 hour remains, tell MJ to call it a day or ask if sleep time should be pushed.
+
+**[Gap 3] Adjust available capacity to match the confirmed day type:**
+- **Light day**: target 40–60% of total available hours for work tasks. Leave the rest for rest, personal, and recovery.
+- **Medium day**: target 60–75% of total available hours for work tasks.
+- **Heavy day**: target 75–90% of total available hours for work tasks. Flag if this leaves less than 1.5 hours of non-work time.
+
+Apply this as a soft cap on work task scheduling. Personal tasks, fixed events, and buffers always come first regardless of day type.
 
 ---
 
@@ -163,6 +185,7 @@ Tasks marked Away or involving the gym, errands, or appointments automatically g
 Present the schedule with a summary at the top:
 - Total hours scheduled
 - Work vs personal breakdown
+- **[Gap 3]** Day type: planned vs actual (e.g., "Planned: Heavy | Actual: Medium — adjusted based on energy")
 - Which projects are being advanced today
 - Whether today's schedule puts MJ on track for weekly goals
 
