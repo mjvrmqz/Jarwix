@@ -12,13 +12,19 @@ When MJ wants to add a task, first confirm: is this task tied to a specific proj
 
 ---
 
+## Week Filter — Always Apply
+
+Before reading any project data, determine the current week range (Monday through Sunday of the current week). Only read project rows where the `Week` date property overlaps this range. Ignore all other project rows — those belong to past or future weeks. If a project row has no `Week` set, skip it and flag it to MJ.
+
+---
+
 ## Optional: Claude-Generated Task Suggestions
 
 If MJ says something like "suggest some tasks", "I don't know what to plan", or "give me ideas" — generate 6–10 suggested tasks. Read in this order:
 
-1. **Brain Dump databases** — open each Active project page and check its Brain Dump for unread entries (Done? = unchecked). Highest priority signal for project-related suggestions.
+1. **Brain Dump databases** — open each Active project page (this week only) and check its Brain Dump for unread entries (Done? = unchecked). Highest priority signal for project-related suggestions.
 2. **Task Dump** — check for any personal task ideas already written down. These take priority over inferred personal tasks.
-3. **Projects database** — check Active projects, Weekly Allocation vs hours logged, and current stage in Stages Progress to fill gaps not covered by dump entries.
+3. **Projects database** — check Active projects (this week only), Weekly Allocation vs hours logged, and current stage in Stages Progress to fill gaps not covered by dump entries.
 4. **State (Entries) database** — energy and mood to calibrate suggestion difficulty.
 
 If Brain Dump or Task Dump entries exist, use those as the basis for suggestions before inferring anything. Unread dump entries represent things MJ already wants to do.
@@ -51,7 +57,7 @@ Once MJ confirms, Claude generates the Details summary, builds the Actionable St
 
 ## Scheduling Tasks from the Queue
 
-Once tasks exist in Projects or Other, MJ can select which ones to schedule. Present a multi-select list showing task Names and Details from all Active project Tasks databases and the Other database.
+Once tasks exist in Projects or Other, MJ can select which ones to schedule. Present a multi-select list showing task Names and Details from all Active project Tasks databases (this week only) and the Other database.
 
 **Single task selected** → ask for a starting time (free-text) → write to Feed with the correct `Type` (Work or Personal based on project type). Write Actionable Steps, Hours, Time, and the `' Calendar'` title property. DO NOT delete the task from the internal project's Tasks database after scheduling.
 

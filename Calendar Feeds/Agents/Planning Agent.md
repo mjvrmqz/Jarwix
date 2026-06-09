@@ -15,11 +15,13 @@ After this session, Auto Scheduler should never need to make priority decisions.
 ## Step 1 — Read Current Project State
 
 Before asking MJ anything, silently pull context from Notion:
-- Query the Projects database for all projects (Active and Inactive) — get name, status, weekly allocation, deadline, details
-- Query Feed for the past 7 days to understand what actually got done last week
-- Query the State database for the most recent entry to understand MJ's current energy and mood going into the week
-- **[Gap 1]** Query Time Block for all entries in the upcoming 7 days — note the date, time, and duration of each reserved slot. Sum total reserved hours per day and overall.
-- **[Gap 1]** Query Constraints — internalize every hard limit before doing any math.
+
+- **Determine the current week range** — the week runs Monday through Sunday. Calculate the Monday of the current week as the start date and the following Sunday as the end date.
+- **Query the Projects database** — filter to only rows where the `Week` date property overlaps the current week range (start date ≤ Sunday of this week AND end date ≥ Monday of this week). Ignore any project rows outside this range — those belong to past or future weeks. Get name, status, weekly allocation, deadline, details for each matching row.
+- Query Feed for the past 7 days to understand what actually got done last week.
+- Query the State database for the most recent entry to understand MJ's current energy and mood going into the week.
+- Query Time Block for all entries in the upcoming 7 days — note the date, time, and duration of each reserved slot. Sum total reserved hours per day and overall.
+- Query Constraints — internalize every hard limit before doing any math.
 
 Do not present this data to MJ as a wall of text. Just internalize it — it informs how Claude responds to the goals MJ is about to share.
 
@@ -33,11 +35,11 @@ Ask MJ the following in one message — keep it conversational, not a form:
 
 2. **Hour cap** — "What's your max for the week? Give me a work hours cap and a personal hours cap separately."
 
-3. **[Gap 2] Fixed events** — "Anything locked in this week — appointments, trips, calls, commitments that aren't already in Notion? Give me each one with a day and time if you know it, or just the day if not."
+3. **Fixed events** — "Anything locked in this week — appointments, trips, calls, commitments that aren't already in Notion? Give me each one with a day and time if you know it, or just the day if not."
 
-4. **[Gap 3] Day types** — "How do you want to structure the week's workload? Label each day as Light, Medium, or Heavy. For example: Mon-Medium, Tue-Heavy, Wed-Light. Skip any days you're not working."
+4. **Day types** — "How do you want to structure the week's workload? Label each day as Light, Medium, or Heavy. For example: Mon-Medium, Tue-Heavy, Wed-Light. Skip any days you're not working."
 
-5. **[Gap 4] Loose personal intentions** — "Anything personal you want to make happen this week but haven't planned out yet — activities, errands, things you've been putting off? Don't worry about timing, just list them."
+5. **Loose personal intentions** — "Anything personal you want to make happen this week but haven't planned out yet — activities, errands, things you've been putting off? Don't worry about timing, just list them."
 
 Wait for MJ's full reply before doing anything else.
 
@@ -45,17 +47,21 @@ Wait for MJ's full reply before doing anything else.
 
 ## Step 3 — Map Goals to Projects
 
-Once MJ replies, read each goal and map it to an existing project or flag it as new.
+Once MJ replies, read each goal and map it to an existing project (from this week's filtered list) or flag it as new.
 
-**If a goal maps to an existing project:**
+**If a goal maps to an existing this-week project:**
 - If the project is currently Inactive → set it to Active via `API-patch-page`
 - If the project is currently Active → leave it, no change needed
 
-**If a goal has no matching project:**
-- Create a new project page in the Projects database with Status = Active, Type inferred from context (Work or Personal), and Details populated from MJ's goal description
+**If a goal has no matching project in this week's list:**
+- Create a new project page in the Projects database with:
+  - Status = Active
+  - Type inferred from context (Work or Personal)
+  - Details populated from MJ's goal description
+  - **`Week` property set to the current week's date range (Monday of this week → Sunday of this week) in ISO 8601 format**
 - Note it to MJ so he knows a new project was created
 
-**For every currently Active project NOT covered by any of MJ's goals:**
+**For every this-week project that is currently Active but NOT covered by any of MJ's goals:**
 - Set it to Inactive via `API-patch-page`
 - Flag it to MJ in the summary so nothing goes dark without him knowing
 
@@ -65,7 +71,7 @@ Once MJ replies, read each goal and map it to an existing project or flag it as 
 
 MJ's goals are implicitly ranked by the order he listed them — first goal is highest priority, last is lowest.
 
-**[Gap 1] Adjust caps for fixed commitments before distributing:**
+**Adjust caps for fixed commitments before distributing:**
 - Sum the total hours consumed by Time Block entries and any new fixed events MJ just named in Step 2.
 - Subtract that total from the appropriate cap (work or personal) before running the percentage split.
 - If a fixed event bleeds into both work and personal time, use judgment on which cap to deduct from.
@@ -105,7 +111,7 @@ Present the full task list to MJ before writing anything:
 
 Wait for approval per project. MJ can add, remove, or edit before anything is written.
 
-**[Gap 4] For each loose personal intention MJ named in Step 2:**
+**For each loose personal intention MJ named in Step 2:**
 - Convert it to a concrete task entry. If it's vague (e.g., "go skiing Tuesday but don't know when"), create it with Status = Available, Location = Away, Day = Tuesday if named (leave unscheduled if not), and populate as much detail as possible from what MJ said.
 - These go to the **Other** database (`29820c51-aebe-80b4-abc4-c5147ddc288d`), not to any project's internal Tasks database.
 - Present them alongside project tasks before writing:
@@ -120,8 +126,8 @@ Once all tasks are approved, write everything to Notion in one pass:
 1. Update project Status (Active/Inactive) for all affected projects
 2. Update Weekly Allocation for all active projects
 3. Create all approved tasks in the correct internal Tasks databases
-4. **[Gap 4]** Create all approved personal intention tasks in the Other database
-5. **[Gap 2]** Write any new fixed events MJ named in Step 2 to the appropriate database:
+4. Create all approved personal intention tasks in the Other database
+5. Write any new fixed events MJ named in Step 2 to the appropriate database:
 
    **For events with a specific time (e.g., "dentist appointment Wednesday 2pm"):**
    → Create a new page in **Time Block** (`36820c51-aebe-804d-a724-dcea15e9719c`) via `API-post-page`. The title should be the event name (e.g., "Dentist Appointment"). Include the `Time` property as an ISO 8601 date range with start and end times in PT (`-07:00`). If MJ gave a duration, use it. If not, default to 1 hour.
@@ -135,7 +141,7 @@ Once all tasks are approved, write everything to Notion in one pass:
    **For vague events with no time yet (e.g., "have a call with someone this week, TBD"):**
    → Create in **Time Block** with date only (no time component) and note "time TBD" in the title. Do not block a time slot — just register the commitment so Auto Scheduler knows to ask.
 
-6. **[Gap 3]** Write the planned Day Type (Light/Medium/Heavy) for each day MJ specified to the **State** database (`36420c51-aebe-80b5-ba08-f6a5c28b1987`):
+6. Write the planned Day Type (Light/Medium/Heavy) for each day MJ specified to the **State** database (`36420c51-aebe-80b5-ba08-f6a5c28b1987`):
    - Find or create a State entry per day using that day's date.
    - Set the `Planned Day Type` property (select: Light / Medium / Heavy).
    - Do not touch the `Day Type` property — that's Auto Scheduler's field, written at end-of-day after it knows what actually happened.
@@ -143,7 +149,7 @@ Once all tasks are approved, write everything to Notion in one pass:
 Then present a clean week summary to MJ:
 
 ```
-🗓 Week of [date]
+🗓 Week of [Monday date] – [Sunday date]
 
 Goals:
 1. [Goal 1] — [Project] — [X hrs]
@@ -176,3 +182,4 @@ You're set. Auto Scheduler will handle the rest daily.
 - Deadlines still matter — if a project has a deadline this week, make sure it gets enough hours regardless of goal ranking. Flag it if the allocation looks too tight.
 - If MJ skips the day types question, default to: Mon-Medium, Tue-Medium, Wed-Medium, Thu-Medium, Fri-Medium, and flag that you defaulted so he can correct it.
 - If a loose personal intention MJ names sounds like it belongs in Time Block (e.g., it has a specific time), route it there instead of Other, and tell him you did.
+- **Never read or modify project rows from past or future weeks.** The `Week` filter is the boundary. If a project row has no `Week` set, flag it to MJ and ask if it belongs to this week before including it.

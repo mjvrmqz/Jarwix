@@ -16,7 +16,7 @@ Before any scheduling logic runs, query all of the following from Notion:
 - **Recurring** — standing weekly/monthly commitments. Treat as fixed events. Reserve their full time blocks before placing any tasks. If MJ mentions something recurring that isn't logged, ask if it should be added.
 
 **Projects & Tasks:**
-- **Projects database** — all Active projects (Status = Active). Inactive = ignore completely. Key properties: Project, Type, Status, Weekly Allocation, Deadline, Details, Weekly Finished.
+- **Projects database** — determine the current week range (Monday through Sunday of the current week). Query only project rows where the `Week` date property overlaps this range. Within those, read only rows with Status = Active. Inactive = ignore completely. If a project row has no `Week` set, skip it and flag it to MJ. Key properties: Project, Type, Status, Weekly Allocation, Deadline, Details, Weekly Finished.
 - Each Active project page contains: Callout block, Timeline database, Stages Progress database, Tasks database, Brain Dump database.
 - **Other database** — personal tasks not tied to any project. This includes personal intentions the Planning Agent logged during the weekly planning session.
 - **Task Dump** — personal task ideas (Done? = unchecked only). Older entries (earlier Created time) generally take priority — soft rule.
@@ -89,7 +89,7 @@ Rules:
 
 Before checking eligible hours or building anything, have a brief conversation with MJ about each Active project that needs a new task generated.
 
-For every Active project:
+For every Active project (this week only — per the Week filter above):
 1. Open the project page and read the Stages Progress database
 2. Find the current active stage — first stage where Done is NOT checked
 3. Read everything available: stage name, linked Task URLs, Text field, Callout block, Details property
