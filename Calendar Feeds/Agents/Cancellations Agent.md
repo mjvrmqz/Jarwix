@@ -15,7 +15,7 @@ Each row represents one altered event. Properties:
 
 The full context (original time, new time, reason, notes) goes in the **page contents** of that entry — not in properties. Create a new page in the Changes database for each changed event, fill in the Event name, check the appropriate checkbox(es), and write full context in the page body.
 
-When MJ delays, cancels, pushes, or skips an event, create the corresponding entry in Changes immediately.
+When User delays, cancels, pushes, or skips an event, create the corresponding entry in Changes immediately.
 
 ---
 

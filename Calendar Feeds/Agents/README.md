@@ -10,12 +10,12 @@ ntn_z87966143341wFDpXUisYGSE1LQMxiVuwv2WWZgnJ3q3LR
 ## Workspace Structure
 
 ### Dashboard Page
-Where all of MJ's personal context lives as structured databases:
+Where all personal context lives as structured databases:
 - **About Me** — personality, habits, life priorities, schedule personality
-- **State (Entries)** — MJ's daily check-in (energy, clarity, mood, wake/sleep times)
-- **Contacts** — people in MJ's life with relationship context and notes
+- **State (Entries)** — User's daily check-in (energy, clarity, mood, wake/sleep times)
+- **Contacts** — people in User's life with relationship context and notes
 - **Preferences** — scheduling preferences by category
-- **Time Block** — reserved time slots MJ sets before scheduling begins
+- **Time Block** — reserved time slots User sets before scheduling begins
 - **Constraints** — hard scheduling limits that can never be overridden
 - **Recurring** — standing weekly/monthly commitments
 
@@ -34,15 +34,15 @@ Where all of MJ's personal context lives as structured databases:
 
 ## Agent Routing
 
-When MJ sends a message, Claude reads this table first and opens the correct agent file before doing anything else.
+When User sends a message, Claude reads this table first and opens the correct agent file before doing anything else.
 
-| Agent File | Open when MJ... |
+| Agent File | Open when User... |
 |---|---|
 | `Planning Agent.md` | Says "weekly planning", "plan my week", or wants to set goals and intentions for the upcoming week |
-| `Auto Scheduler Agent.md` | Says "auto scheduler", "build my schedule", "plan my day", or you detect he wants his calendar built automatically |
-| `Task Selector Agent.md` | Says "task selection", "add a task", "I want to add tasks", or you detect he wants to add tasks to a project or the Other database |
-| `Task Summarizer Agent.md` | Says "task summary", "task summary report", or you detect he wants to review and mark off completed events |
-| `Cancellations Agent.md` | Says "cancel", "delay", "push", "skip", or you detect he wants to alter a scheduled event |
+| `Auto Scheduler Agent.md` | Says "auto scheduler", "build my schedule", "plan my day", or you detect they want their calendar built automatically |
+| `Task Selector Agent.md` | Says "task selection", "add a task", "I want to add tasks", or you detect they want to add tasks to a project or the Other database |
+| `Task Summarizer Agent.md` | Says "task summary", "task summary report", or you detect they want to review and mark off completed events |
+| `Cancellations Agent.md` | Says "cancel", "delay", "push", "skip", or you detect they want to alter a scheduled event |
 
 If the intent is ambiguous, ask one question to clarify before opening any agent file.
 
@@ -50,9 +50,9 @@ If the intent is ambiguous, ask one question to clarify before opening any agent
 
 ## Global Rules (Apply Across All Agents)
 
-- **USE YOUR OWN JUDGMENT** — the databases and agent files are inputs to Claude's thinking, not a script to execute line by line. Reason independently. Push back when something feels off. MJ is human and may have things in these databases that aren't in his best interest.
+- **USE YOUR OWN JUDGMENT** — the databases and agent files are inputs to Claude's thinking, not a script to execute line by line. Reason independently. Push back when something feels off. User is human and may have things in these databases that aren't in their best interest.
 
-- **NEVER override a hard constraint** from the Constraints database for any reason. If a scheduling request conflicts with a constraint, flag it to MJ and ask how to handle it.
+- **NEVER override a hard constraint** from the Constraints database for any reason. If a scheduling request conflicts with a constraint, flag it to User and ask how to handle it.
 
 - **Prefer asking one clarifying question** over making a wrong assumption.
 
@@ -67,4 +67,4 @@ If the intent is ambiguous, ask one question to clarify before opening any agent
   - **Rest Day** — 2+ heavy work days in a row; or energy ≤ 4; or mood indicates burnout/exhaustion; or all projects on track
   - **Balanced Day** — mixed signals or none of the above strongly apply
 
-  Tell MJ the assessed Day Type and reasoning. Give him the chance to override before scheduling begins.
+  Tell User the assessed Day Type and reasoning. Give them the chance to override before scheduling begins.
