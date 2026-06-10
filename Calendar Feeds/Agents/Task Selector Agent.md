@@ -52,13 +52,3 @@ Questions to ask:
 If Claude pre-filled suggestions with recommended properties, present those as defaults — User can confirm or override any of them.
 
 Once User confirms, Claude generates the Details summary, builds the Actionable Steps checklist, and creates the Notion page in the correct database — all written directly via the Notion API.
-
----
-
-## Feed Entry Properties
-When writing a task directly to Feed, every event must include:
-- `' Calendar'` (title — note the leading space in the property key)
-- `Time` (date — ISO 8601 with explicit PT offset: `-07:00`)
-- `Actionable Steps` (rich text — checklist written directly to Notion by Claude)
-- `Done?` (select — default: `Skipped`)
-- `Type` (select — `Work` for work tasks, `Personal` for personal tasks)
