@@ -141,7 +141,7 @@ You only perform:
 
 ---
 
-### Examples (universalized)
+### Examples
 
 - Open the project and locate last state  
 - Skim current progress and highlight issues  
