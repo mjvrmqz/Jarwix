@@ -161,6 +161,41 @@ That's the whole thing.
 
 ---
 
+## FAQ — Questions I Actually Had
+
+**Do I need to fill out the State database before running the Auto Scheduler?**
+Yes. The Auto Scheduler's first step is reading today's State entry — your wake time, energy, mental clarity, mood, and physical state. If today's entry doesn't exist or doesn't match today's date, it will ask you to fill it in before doing anything. So always do your State check-in before running it.
+
+**Does the Auto Scheduler know about my easy/medium/hard day rotation system?**
+Partially. It knows about Light/Medium/Heavy days and checks if your actual energy matches what the Planning Agent planned for the day (e.g. if Sunday said Heavy but you're low energy, it flags the mismatch and asks what to do). But the specific rotation logic — like "always do easy after hard" — is not baked into the agent file. That should live in your Preferences database in Notion so the Auto Scheduler reads and respects it as a standing rule.
+
+**What if I only have 2 projects to work on in a week?**
+Nothing breaks. The Planning Agent just allocates your hours across those two projects and the Auto Scheduler builds your days from that smaller pool. If you run out of tasks mid-week, that's when Brain Dump or Task Selector come in. Or you just have a lighter week. That's fine.
+
+**What's the difference between the Stages Progress database and the Internal Tasks database?**
+They answer different questions:
+- **Stages Progress** = where is this project overall? (Phase 1 done, Phase 2 in progress, etc.)
+- **Internal Tasks** = what do I actually do next? (individual actionable tasks with hours, focus, urgency)
+
+Stages Progress is the map. Internal Tasks is the to-do list. The Task Selector reads Stages Progress to suggest relevant tasks — if you're in Phase 2 it won't suggest Phase 3 work.
+
+**How does the system know which tasks are already done?**
+The Internal Tasks database has a **Status** property. Tasks start as Available. When scheduled they get written to Feed. When completed, the Task Summarizer marks the Feed entry as Done. The Auto Scheduler and Task Selector filter by `Status ≠ Done` so completed tasks never get re-surfaced. The Stages Progress database has its own Done checkbox per stage — that's separate and marks an entire phase as complete, not individual tasks.
+
+**Does the Brain Dump filter out entries I've already acted on?**
+The Task Selector only reads Brain Dump entries where `Done? = unchecked`. The Auto Scheduler follows the same logic in practice. Once you've acted on a Brain Dump entry, check it off so it stops showing up. Claude does not delete Brain Dump entries automatically — that's always manual.
+
+**If Stage 1 is marked done and there are unchecked Brain Dump entries, do they get assigned to Stage 2?**
+Not automatically. Brain Dump entries don't have a stage attached to them. When the agent reads them, it interprets them in the context of whatever stage is currently active. So if Stage 2 is now active, those entries get treated as Stage 2 work. The agent uses context to figure it out — it doesn't reassign or retag entries in Notion.
+
+**What's the point of the hourly allocation (e.g. 40% = 24 hours to Goal 1) if I can't always predict 24 hours of tasks?**
+The allocation is a priority signal, not a hard contract. It tells the system "if there's a choice, Goal 1 comes first." If you only have 10 hours of visible tasks for that goal, the system schedules 10 hours — it doesn't force you to fill the remaining 14. New tasks reveal themselves as you work, and mid-week you can add more via Brain Dump or Task Selector. The Planning Agent also generates tasks from your goal description to help fill that pool — so you're not manually inventing every task yourself.
+
+**Can I give the Planning Agent a messy unstructured paragraph instead of a clean list of goals?**
+Yes, that's exactly what it's designed for. Dump whatever's in your head — project names, rough hours, things you want to get done, how you want the week to feel. The Planning Agent maps it to your existing projects, asks follow-up questions if something is too vague, and handles the structure itself.
+
+---
+
 ## Updating This File
 
 This file is meant to stay simple and human-readable. Whenever the system changes (new agent, new database, new flow), just ask Claude to patch this file. It should never need a full rewrite — just small updates as the system evolves.
